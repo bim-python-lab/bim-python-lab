@@ -6,8 +6,8 @@ Este documento oferece os roteiros e links necessários para configurar o ambien
 
 ## Arquivos do Curso
 
-- [hello_ifc.py](https://raw.githubusercontent.com/seu-usuario/open-bim-python/main/bloco01/hello_ifc.py)
-- [modelo_tres_paredes.ifc](https://raw.githubusercontent.com/seu-usuario/open-bim-python/main/bloco01/modelo_tres_paredes.ifc)
+- [count_walls.py](https://raw.githubusercontent.com/bim-python-lab/bim-python-lab/refs/heads/main/unidade01/count_walls.py)
+- [walls.ifc](https://raw.githubusercontent.com/bim-python-lab/bim-python-lab/refs/heads/main/unidade01/walls.ifc)
 
 > Substitua `seu-usuario` pela sua conta ou organização GitHub real.
 
@@ -46,6 +46,13 @@ pip install ifcopenshell pandas
 - Acesso: [https://github.com/features/codespaces](https://github.com/features/codespaces)
 
 ### Pré-requisitos:
+- Instalar bibliotecas manualmente com:
+```
+pip install ifcopenshell pandas
+```
+
+Ou
+
 - Repositório com `requirements.txt` e `.devcontainer/devcontainer.json` contendo:
 ```json
 {
@@ -70,8 +77,8 @@ pip install ifcopenshell pandas
 ```python
 !pip install ifcopenshell pandas
 ```
-3. Fazer upload de `modelo_tres_paredes.ifc`
-4. Executar o script
+3. Fazer upload de `walls.ifc`
+4. Executar os comandos do script count_walls.py
 
 ---
 
