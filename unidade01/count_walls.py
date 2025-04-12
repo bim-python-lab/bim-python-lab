@@ -2,6 +2,6 @@
 
 import ifcopenshell
 
-model = ifcopenshell.open("modelo.ifc")
+model = ifcopenshell.open("walls.ifc")
 for wall in model.by_type("IfcWall"):
     print(wall.Name)
