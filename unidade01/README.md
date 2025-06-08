@@ -25,7 +25,7 @@ Caso ocorra um ero, o programa detect_platform.py pode ser utilizado para inform
 python detect_platform.py
 ```
 
-A saída normal em abril de 2025, usando o Codespaces seria`
+A saída normal em abril de 2025, usando o Codespaces seria:
 
 ```
 Executando no GitHub Codespaces
