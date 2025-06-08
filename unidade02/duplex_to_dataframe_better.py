@@ -1,8 +1,10 @@
+# Programação Open BIM com Python, (c) PUCRS, 2025
+
 import ifcopenshell
 import pandas as pd
 
 model = ifcopenshell.open("duplex.ifc")
-tipos = ["IfcWall", "IfcDoor", "IfcWindow"]
+tipos = ["IfcWall", "IfcDoor", "IfcWindow", "IfcSlab"]
 # generator  
 dados = (
     {
