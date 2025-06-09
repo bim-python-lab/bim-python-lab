@@ -33,7 +33,7 @@ print("Paredes:", len(walls))
 
 # ---------- 4D: Etapas construtivas ----------
 for wall in walls:
-    etapa = "Alvenaria Externa" if "externa" in wall.Name.lower() else "Alvenaria Interna"
+    etapa = "Alvenaria Externa" if "exterior" in wall.Name.lower() else "Alvenaria Interna"
     pset = run("pset.add_pset", model, product=wall, name="PSet_Tarefa4D")
     adicionar_propriedade(model, pset, "EtapaConstrutiva", etapa)
     print(f"Valor {etapa} adicionado à parede {wall.Name}")
@@ -43,27 +43,28 @@ for door in filtrar(model, tipo="IfcDoor"):
     preco = 1800 if "dupla" in getattr(door, "Name", "").lower() else 1200
     pset = run("pset.add_pset", model, product=door, name="PSet_Custo5D")
     adicionar_propriedade(model, pset, "CustoUnitario", preco)
-    print(f"Valor {preco} adicionada à porta")
+    print(f"Valor {preco} adicionada à porta {door.Name}")
 
 # ---------- 6D: Classe energética das paredes ----------
 for wall in walls:
-    classe = "B" if "externa" in getattr(wall, "Name", "").lower() else "A"
+    classe = "B" if "exterior" in getattr(wall, "Name", "").lower() else "A"
     pset = run("pset.add_pset", model, product=wall, name="PSet_Energia6D")
     adicionar_propriedade(model, pset, "ClasseEnergetica", classe)
     print(f"Valor {classe} adicionada à parede {wall.Name}")
 
 # ---------- 7D: Datas de manutenção em lajes ----------
 for slab in filtrar(model, tipo="IfcSlab"):
-    pset = run("pset.add_pset", model, product=slab, name="PSet_Manutencao7D") deadline = "2026-01-01"
-    adicionar_propriedade(model, pset, "RevisaoPrevista", "2026-01-01")
-    print(f"Valor {classe} adicionada ao piso")
+    pset = run("pset.add_pset", model, product=slab, name="PSet_Manutencao7D")   
+    deadline = "2026-01-01"
+    adicionar_propriedade(model, pset, "RevisaoPrevista", deadline)
+    print(f"Valor {deadline} adicionada ao piso {slab.Name}")
 
 # ---------- 8D: Zonas de risco em ambientes ----------
-#for space in filtrar(model, tipo="IfcSpace"):
-#    pset = run("pset.add_pset", model, product=wall, name="PSet_Seguranca8D")
-
-#    risco = "Risco de Queda" if "escada" in getattr(space, "Name", "").lower() else "Área Geral"
-#    run("pset.add_pset", model, product=space, name="PSet_Seguranca8D", properties={"ZonaDeRisco": risco})
+for space in filtrar(model, tipo="IfcSpace"):
+    pset = run("pset.add_pset", model, product=space, name="PSet_Seguranca8D")
+    risco = "Risco de Queda" if "A105" in getattr(space, "Name", "").upper() else "Área Geral"
+    adicionar_propriedade(model, pset, "ZonaDeRisco", risco)
+    print(f"Valor {risco} adicionada ao espaço {space.Name}")
 
 # ---------- Salva resultado ----------
 model.write("duplex_3D8D.ifc")
