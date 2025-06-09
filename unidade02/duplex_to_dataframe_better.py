@@ -14,7 +14,7 @@ data = (
         "Tag": getattr(elem, "Tag", "")
     }
     for type in types
-    for elem in model.by_type(tipo)
+    for elem in model.by_type(type)
 )
 df = pd.DataFrame.from_records(data)
 print(df.head())

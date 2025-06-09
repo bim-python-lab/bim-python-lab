@@ -6,7 +6,7 @@ import csv
 model = ifcopenshell.open("building_elements.ifc")
 types = ["IfcWall", "IfcDoor", "IfcWindow"]
 
-with open("output.csv", "w", newline="") as csvfile:
+with open("building_elements.csv", "w", newline="") as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(["Tipo", "GlobalId", "Nome"])
 

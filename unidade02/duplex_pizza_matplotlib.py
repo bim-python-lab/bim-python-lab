@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 model = ifcopenshell.open("duplex.ifc")
 types = [e.is_a() for e in model if hasattr(e, "Name")]
 counts = Counter(types)
-mais_comuns = counts.most_common(4)
-labels = [item[0] for item in mais_comuns]
-data = [item[1] for item in mais_comuns]
+top = counts.most_common(4)
+labels = [item[0] for item in top]
+data = [item[1] for item in top]
 
 plt.pie(data, labels=labels, autopct="%1.1f%%", startangle=90)
 plt.title("Distribuição dos tipos no modelo Duplex")

@@ -14,4 +14,4 @@ with open("duplex_output.csv", "w", newline="") as csvfile:
     for type in types:
         for elem in model.by_type(type):
             name = elem.Name if hasattr(elem, "Name") else ""
-            writer.writerow([tipo, elem.GlobalId, name])
+            writer.writerow([type, elem.GlobalId, name])

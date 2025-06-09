@@ -7,7 +7,7 @@ model = ifcopenshell.open("duplex.ifc")
 types = ["IfcWall", "IfcDoor", "IfcWindow", "IfcSlab"]
 data = []
 for type in types:
-    for elem in model.by_type(tipo):
+    for elem in model.by_type(type):
         data.append({
             "Typo": type,
             "GlobalId": elem.GlobalId,
