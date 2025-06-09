@@ -52,6 +52,18 @@ for wall in walls:
     adicionar_propriedade(model, pset, "ClasseEnergetica", classe)
     print(f"Valor {classe} adicionada à parede {wall.Name}")
 
+# ---------- 7D: Datas de manutenção em lajes ----------
+for slab in filtrar(model, tipo="IfcSlab"):
+    pset = run("pset.add_pset", model, product=slab, name="PSet_Manutencao7D") deadline = "2026-01-01"
+    adicionar_propriedade(model, pset, "RevisaoPrevista", "2026-01-01")
+    print(f"Valor {classe} adicionada ao piso")
+
+# ---------- 8D: Zonas de risco em ambientes ----------
+#for space in filtrar(model, tipo="IfcSpace"):
+#    pset = run("pset.add_pset", model, product=wall, name="PSet_Seguranca8D")
+
+#    risco = "Risco de Queda" if "escada" in getattr(space, "Name", "").lower() else "Área Geral"
+#    run("pset.add_pset", model, product=space, name="PSet_Seguranca8D", properties={"ZonaDeRisco": risco})
 
 # ---------- Salva resultado ----------
 model.write("duplex_3D8D.ifc")
