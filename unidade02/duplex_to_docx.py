@@ -1,3 +1,4 @@
+# Programação Open BIM com Python, (c) PUCRS, 2025
 
 import ifcopenshell
 from docx import Document

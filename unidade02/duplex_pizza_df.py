@@ -1,3 +1,5 @@
+# Programação Open BIM com Python, (c) PUCRS, 2025
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
