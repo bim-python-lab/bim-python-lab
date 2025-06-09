@@ -19,9 +19,9 @@ ifcopenshell.api.run("aggregate.assign_object", ifc, relating_object=site, produ
 ifcopenshell.api.run("aggregate.assign_object", ifc, relating_object=building, products=[storey])
 
 # Criar 3 paredes simples e atribuí-las ao pavimento
-for nome in ["Parede A", "Parede B", "Parede C"]:
-    parede = ifcopenshell.api.run("root.create_entity", ifc, ifc_class="IfcWallStandardCase", name=nome)
-    ifcopenshell.api.run("spatial.assign_container", ifc, relating_structure=storey, products=[parede])
+for name in ["Parede A", "Parede B", "Parede C"]:
+    wall = ifcopenshell.api.run("root.create_entity", ifc, ifc_class="IfcWallStandardCase", name=name)
+    ifcopenshell.api.run("spatial.assign_container", ifc, relating_structure=storey, products=[wall])
 
 # Salvar arquivo IFC
 ifc.write("walls.ifc")

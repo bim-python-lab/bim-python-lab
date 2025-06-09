@@ -4,16 +4,16 @@ import ifcopenshell
 import pandas as pd
 
 model = ifcopenshell.open("duplex.ifc")
-tipos = ["IfcWall", "IfcDoor", "IfcWindow", "IfcSlab"]
-dados = []
-for tipo in tipos:
+types = ["IfcWall", "IfcDoor", "IfcWindow", "IfcSlab"]
+data = []
+for type in types:
     for elem in model.by_type(tipo):
-        dados.append({
-            "Tipo": tipo,
+        data.append({
+            "Typo": type,
             "GlobalId": elem.GlobalId,
-            "Nome": getattr(elem, "Name", ""),
+            "Name": getattr(elem, "Name", ""),
             "Tag": getattr(elem, "Tag", "")
         })
-df = pd.DataFrame(dados)
+df = pd.DataFrame(data)
 print(df.head())
 df.to_csv("duplex_dataframe.csv", index=False)

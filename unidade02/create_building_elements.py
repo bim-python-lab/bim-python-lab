@@ -19,16 +19,16 @@ ifcopenshell.api.run("aggregate.assign_object", ifc, relating_object=site, produ
 ifcopenshell.api.run("aggregate.assign_object", ifc, relating_object=building, products=[storey])
 
 # Adicionar elementos
-for nome in ["Parede A", "Parede B", "Parede C"]:
-    parede = ifcopenshell.api.run("root.create_entity", ifc, ifc_class="IfcWallStandardCase", name=nome)
-    ifcopenshell.api.run("spatial.assign_container", ifc, relating_structure=storey, products=[parede])
+for name in ["Parede A", "Parede B", "Parede C"]:
+    wall = ifcopenshell.api.run("root.create_entity", ifc, ifc_class="IfcWallStandardCase", name=name)
+    ifcopenshell.api.run("spatial.assign_container", ifc, relating_structure=storey, products=[wall])
 
-for nome in ["Porta 1", "Porta 2"]:
-    porta = ifcopenshell.api.run("root.create_entity", ifc, ifc_class="IfcDoor", name=nome)
-    ifcopenshell.api.run("spatial.assign_container", ifc, relating_structure=storey, products=[porta])
+for name in ["Porta 1", "Porta 2"]:
+    door = ifcopenshell.api.run("root.create_entity", ifc, ifc_class="IfcDoor", name=name)
+    ifcopenshell.api.run("spatial.assign_container", ifc, relating_structure=storey, products=[door])
 
-janela = ifcopenshell.api.run("root.create_entity", ifc, ifc_class="IfcWindow", name="Janela 1")
-ifcopenshell.api.run("spatial.assign_container", ifc, relating_structure=storey, products=[janela])
+window = ifcopenshell.api.run("root.create_entity", ifc, ifc_class="IfcWindow", name="Janela 1")
+ifcopenshell.api.run("spatial.assign_container", ifc, relating_structure=storey, products=[window])
 
 # Salvar arquivo
 ifc.write("building_elements.ifc")
