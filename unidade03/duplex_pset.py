@@ -3,9 +3,9 @@ from ifcopenshell.api import run
 
 # ---------- Função de filtragem reutilizável ----------
 
-def filter(model, tipo=None, nome_contendo=None):
-    for elem in model.by_type(tipo) if tipo else model:
-        if nome_contendo and nome_contendo.lower() not in getattr(elem, "Name", "").lower():
+def filter(model, type=None, named=None):
+    for elem in model.by_type(tipo) if type else model:
+        if named and named.lower() not in getattr(elem, "Name", "").lower():
             continue
         yield elem
 
@@ -28,7 +28,7 @@ def add_prop(model, pset, name, value):
 model = ifcopenshell.open("duplex.ifc")
 
 # ---------- 3D: Contagem de elementos ----------
-walls = list(filter(model, tipo="IfcWall"))
+walls = list(filter(model, type="IfcWall"))
 print("Paredes:", len(walls))
 
 # ---------- 4D: Etapas construtivas ----------

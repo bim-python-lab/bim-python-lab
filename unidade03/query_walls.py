@@ -8,9 +8,9 @@ if len(sys.argv) != 2:
 file = sys.argv[1]
 model = ifcopenshell.open(file)
 
-def exibir_estrutura(elem):
-    nome = getattr(elem, "Name", "*")
-    print(f"{elem.is_a()} – {nome}")
+def display(elem):
+    name = getattr(elem, "Name", "*")
+    print(f"{elem.is_a()} – {name}")
     if hasattr(elem, "IsDefinedBy"):
         for rel in elem.IsDefinedBy:
             if rel.is_a("IfcRelDefinesByProperties"):
@@ -24,6 +24,6 @@ def exibir_estrutura(elem):
 # Exibe a estrutura do primeiro IfcWall
 walls = model.by_type("IfcWall")
 if walls:
-    exibir_estrutura(walls[0])
+    display(walls[0])
 else:
     print("Nenhuma parede encontrada.")
