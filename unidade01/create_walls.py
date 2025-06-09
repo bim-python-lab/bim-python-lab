@@ -1,4 +1,5 @@
 # Programação Open BIM com Python, (c) PUCRS, 2025
+# TESTE
 
 import ifcopenshell
 import ifcopenshell.api
